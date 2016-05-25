@@ -407,6 +407,6 @@
 
     </script>
     <!-- DEVELOPMENT SOURCE -->
-    <script data-main="/js/main.admin" src="/js/bower_components/requirejs/require.js"></script>
+    <script data-main="/js/main.admin" src="{{url('js/bower_components/requirejs/require.js')}}"></script>
 
 @endsection
