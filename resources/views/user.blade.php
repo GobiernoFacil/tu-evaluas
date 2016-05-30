@@ -56,15 +56,15 @@
   </form>
 </div>
 
-<script src="{{url('js/bower_components/jquery/dist/jquery.min.js')}}"></script>
-<script src="{{url('js/bower_components/d3/d3.js')}}"></script>
-<script src="{{url('js/bower_components/underscore/underscore.js')}}"></script>
-<script src="{{url('js/bower_components/backbone/backbone.js')}}"></script>
-<script src="{{url('js/bower_components/sweetalert/dist/sweetalert.min.js')}}"></script>
+<script src="{{url('js/lib/jquery.min.js')}}"></script>
+<script src="{{url('js/lib/d3.min.js')}}"></script>
+<script src="{{url('js/lib/underscore-min.js')}}"></script>
+<script src="{{url('js/lib/backbone.js')}}"></script>
+<script src="{{url('js/lib/sweetalert.min.js')}}"></script>
 <script>
 $(document).ready(function(){
   var user = <?php echo json_encode($_user); ?>,
-      path = "{{url('')}}" + "/js/ramos.json",
+      path = "{{url('js/ramos.json')}}",
       ramos, units, ramo; 
 
 $("#branch").on("change", function(e){

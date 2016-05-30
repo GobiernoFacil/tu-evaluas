@@ -32,8 +32,12 @@
 	          	<td>{{ $survey->title}}</td>
 			  	<td>{{ $survey->category }}</td>
 			  	<td>
-				  	<a href="{{url('csv/' . $survey->csv_file . '.xlsx')}}" class="btn btn-link btn-sm">XLSX</a>
-				  	<a href="{{url('csv/' . $survey->csv_file . '.csv')}}" class="btn btn-link btn-sm">CSV</a>
+          @if($survey->type=="results")
+				  	<a href="{{url('csv/' . $survey->csv_file)}}" class="btn btn-link btn-sm">Archivo de resultados</a>
+          @else
+            <a href="{{url('csv/' . $survey->csv_file . '.xlsx')}}" class="btn btn-link btn-sm">XLSX</a>
+            <a href="{{url('csv/' . $survey->csv_file . '.csv')}}" class="btn btn-link btn-sm">CSV</a>
+          @endif
 			  	</td>
           	</tr>
   		  @endforeach

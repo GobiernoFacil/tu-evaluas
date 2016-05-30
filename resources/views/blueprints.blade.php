@@ -139,10 +139,10 @@
   </div>
 </div>
 
-<script src="{{url('js/bower_components/jquery/dist/jquery.min.js')}}"></script>
-<script src="{{url('js/bower_components/typeahead.js/dist/typeahead.jquery.min.js')}}"></script>
-<script src="{{url('js/bower_components/typeahead.js/dist/bloodhound.min.js')}}"></script>
-<script src="{{url('js/bower_components/sweetalert/dist/sweetalert.min.js')}}"></script>
+<script src="{{url('js/lib/jquery.min.js')}}"></script>
+<script src="{{url('js/lib/typeahead.jquery.min.js')}}"></script>
+<script src="{{url('js/lib/bloodhound.min.js')}}"></script>
+<script src="{{url('js/lib/sweetalert.min.js')}}"></script>
 <script>
   /*
    * ENABLE THE USERS AND SURVEY SEARCH

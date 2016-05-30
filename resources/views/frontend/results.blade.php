@@ -134,7 +134,7 @@
 
 @endif
 
-<script src="{{url('js/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{url('js/lib/jquery.min.js')}}"></script>
 <script>
   $(document).ready(function(){
   	var categories = <?php echo json_encode($categories); ?>;

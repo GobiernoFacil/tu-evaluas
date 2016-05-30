@@ -22,7 +22,7 @@
 	</div> 
 	<div class="row">
 		<div class="col-md-8"> 
-          <form name="nock-nock" method="post" action="{{ url('/login') }}" class="form-horizontal" role="form">
+          <form name="nock-nock" method="post" action="{{ url('login') }}" class="form-horizontal" role="form">
           {!! csrf_field() !!}
             <!-- [ ERROR MESSAGE ] 
             <?php /*

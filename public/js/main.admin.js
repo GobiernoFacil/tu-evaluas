@@ -9,14 +9,14 @@
 require.config({
   baseUrl : BASE_PATH  + "/js",
   paths : {
-    jquery     : 'bower_components/jquery/dist/jquery.min',
-    backbone   : "bower_components/backbone/backbone",
-    underscore : "bower_components/underscore/underscore-min",
-    text       : "bower_components/requirejs-text/text",
-    velocity   : 'bower_components/velocity/velocity.min',
-    d3         : 'bower_components/d3/d3.min',
-    sweetalert : 'bower_components/sweetalert/dist/sweetalert.min',
-    "jquery-validation" : "bower_components/jquery-validation/dist/jquery.validate.min"
+    jquery     : 'lib/jquery.min',
+    backbone   : "lib/backbone",
+    underscore : "lib/underscore-min",
+    text       : "lib/text",
+    velocity   : 'lib/velocity.min',
+    d3         : 'lib/d3.min',
+    sweetalert : 'lib/sweetalert.min',
+    "jquery-validation" : "lib/jquery.validate.min"
   },
   shim : {
     backbone : {
