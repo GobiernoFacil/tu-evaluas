@@ -120,10 +120,10 @@
   </div>
 </div>
 
-<script src="{{url('js/lib/jquery.min.js')"></script>
-<script src="{{url('js/lib/typeahead.jquery.min.js')"></script>
-<script src="{{url('js/lib/bloodhound.min.js')"></script>
-<script src="{{url('js/lib/sweetalert.min.js')"></script>
+<script src="{{url('js/lib/jquery.min.js')}}"></script>
+<script src="{{url('js/lib/typeahead.jquery.min.js')}}"></script>
+<script src="{{url('js/lib/bloodhound.min.js')}}"></script>
+<script src="{{url('js/lib/sweetalert.min.js')}}"></script>
 <script>
   /*
    * ENABLE THE USERS AND SURVEY SEARCH
