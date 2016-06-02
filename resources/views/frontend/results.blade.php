@@ -128,7 +128,7 @@
 
 @else
 <div class="col-md-8">
-    <p>Estamos actualizando los resultados de los cuestionarios, pronto más información.</p>
+    <p>Tu búsqueda no ha generado resultados. Inténtalo de nuevo :D.</p>
     <hr>
 </div>
 
