@@ -93,7 +93,7 @@
 						<hr>
 						<div class="bottom-buffer">
                             <div class="pull-left">
-								<button type="button" class="btn btn-primary">Filtrar resultados</button>
+	                            <input type="submit" value="Filtrar resultados" class="btn btn-primary">
 						    </div>
 						</div>
 					</div>
