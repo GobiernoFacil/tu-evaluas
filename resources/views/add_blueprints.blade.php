@@ -76,7 +76,7 @@
                 <label>Archivo de Excel</label>
                 <input type="file" name="the-csv">
               </p>
-              <p><a href="{{url('el-csv-para-preguntas')}}" target="_blank">Cómo debe ser el archivo de Excel</a></p>
+              <p><a href="{{url('example.xlsx')}}" target="_blank">Cómo debe ser el archivo de Excel</a></p>
             </div>
             <div class="col-sm-12">
              <p><input type="submit" value="crear encuesta"></p>
