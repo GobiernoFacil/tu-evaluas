@@ -47,11 +47,11 @@
 				    	     <?php 
 				    	       $opt    = $option->description;
 				    	       $num    = $question->answers->where("text_value", $opt)->count(); 
-				    	       $title  = $option->description;
+				    	       $_title  = $option->description;
 				    	       $amount = $total ? round(($num / $total) * 100, 2) : 0;
 				    	     ?>
 				    	    <p>
-				    	      {{$title}} <strong>{{$amount}}%</strong> <span class="total">({{$num}})</span>
+				    	      {{$_title}} <strong>{{$amount}}%</strong> <span class="total">({{$num}})</span>
 				    	    </p>
 				    	   	<p>
 				    	   	  <span class="the_bar"> 
@@ -76,11 +76,11 @@
 				    	    <?php 
 				    	      $opt    = $option->description;
 				    	      $num    = $question->answers()->whereRaw("FIND_IN_SET({$option->value},text_value)")->count();
-				    	      $title  = $option->description;
+				    	      $_title  = $option->description;
 				    	      $amount = $total ? round(($num / $total) * 100, 2) : 0;
 				    	    ?>
 				    	     <p>
-				    	      {{$title}} <strong>{{$amount}}%</strong> <span class="total">({{$num}})</span>
+				    	      {{$_title}} <strong>{{$amount}}%</strong> <span class="total">({{$num}})</span>
 				    	    </p>
 				    	   	<p>
 				    	   	  <span class="the_bar"> 
@@ -104,11 +104,11 @@
 				    	    <?php 
 				    	      $opt    = $option->text_value;
 				    	      $num    = $option->total;
-				    	      $title  = $test($question->type, $option);
+				    	      $_title  = $test($question->type, $option);
 				    	      $amount = $total ? round(($num / $total) * 100, 2) : 0;
 				    	    ?>
 				    	     <p>
-				    	      {{$title}} <strong>{{$amount}}%</strong> <span class="total">({{$num}})</span>
+				    	      {{$_title}} <strong>{{$amount}}%</strong> <span class="total">({{$num}})</span>
 				    	    </p>
 				    	    <p>
 				    	   	  <span class="the_bar"> 

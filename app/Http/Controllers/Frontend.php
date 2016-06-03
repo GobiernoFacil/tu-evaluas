@@ -252,11 +252,12 @@ class Frontend extends Controller
     if(!$blueprint) die("Este formulario no existe!");
 
     $data = [];
-    $data['blueprint']  = $blueprint;
+    $data['blueprint']   = $blueprint;
     $data['title']       = 'Resultados | Tú Evalúas';
     $data['description'] = 'Resultados de cuestionarios en Tú Evalúas';
     $data['body_class']  = 'results';
-    $data['test']  = $test;
+    $data['test']        = $test;
+
     return view("frontend.result_survey")->with($data);
   }
 
