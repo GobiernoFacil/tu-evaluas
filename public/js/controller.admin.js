@@ -930,50 +930,6 @@ define(function(require){
       }, 'json');
     },
 
-    /*
-    // [ UPLOAD RESULTS ]
-    //
-    //
-    _upload_results : function(e){
-      // [1] define las variables necesarias
-      var files  = e.target.files,
-          fData  = new FormData(),
-          xhr    = new XMLHttpRequest(),
-          url    = "/index.php/surveys/upload-results",
-          name   = "results",
-          anchor = document.getElementById('get-csv-btn'),
-          waitlb = document.getElementById('sending-label'),
-          btn    = document.getElementById('send-file-button'),
-          file;
-      // [2] si no se seleccinó ningún archivo, pelas.
-      if(!files.length) return;
-
-      // [3] en caso de tener un archivo seleccionado, lo envía al
-      //     servidor mediante AJAX. Al enviar el archivo, el botón 
-      //     para seleccionar documento se oculta y aparece el letrero de
-      //     "enviando archivo".
-      file = files[0];
-      fData.append(name, file);
-      xhr.open('post', url, true);
-      xhr.onload = function(data){
-        response = JSON.parse(xhr.responseText);
-        if(response.success){
-          anchor.href = "/csv/" + response.name;
-          anchor.innerHTML = "descargar archivo";
-          anchor.setAttribute('target', '_blank');
-          anchor.style.display = "";
-        }
-        waitlb.style.display = "none";
-        btn.style.display    = "";
-      }
-      xhr.send(fData);
-      waitlb.style.display = "";
-      btn.style.display    = "none";
-      // sending-label
-      // send-file-button
-      // get-csv-btn
-    },
-
     limit_tags : function(e){
       var num = this.$("input[name='" + e.currentTarget.getAttribute("name") + "']:checked").length;
       if(num > 5){
@@ -981,13 +937,14 @@ define(function(require){
       }
     },
 
+
     limit_subs : function(e){
       var num = this.$("input[name='" + e.currentTarget.getAttribute("name") + "']:checked").length;
       if(num > 3){
         e.currentTarget.checked = false;
       }
     },
-    */
+    
 
     //
     // O T H E R   S T U F F
