@@ -43,20 +43,13 @@
 						<div class="row">
 							<div class="col-md-6">
 							  <select name="category" id="survey-category" class="form-control">
-                                <option value="">Selecciona una categoría</option>
-                                @foreach($categories as $cat)
-                                <option value="{{$cat->name}}" {{$category && $category->name == $cat->name ? 'selected' : ''}}>{{$cat->name}}</option>
-                                @endforeach
-                              </select>
-							<?php /* LO QUE DEBERÍA BORRAR: 
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-									Categoría<span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										@foreach($categories as $cat)
-										<li><a href="#">{{$cat->name}}</a></li>
-										@endforeach
-									</ul>
-									*/ ?>
+                  <option value="">Selecciona una categoría</option>
+                  @foreach($categories as $cat)
+                    <option value="{{$cat->name}}" {{$category && $category->name == $cat->name ? 'selected' : ''}}>
+                      {{$cat->name}}
+                    </option>
+                  @endforeach
+                </select>
 							</div>
 							<div class="col-md-3">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Subcategoría<span class="caret"></span></a>
@@ -77,17 +70,6 @@
 							    @endforeach
 							  @endif
 							  </ul>
-							<!--
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-									Etiquetas<span class="caret"></span></a>
-								<ul class="dropdown-menu" role="menu">
-								@if($category)
-              					  @foreach($category->tags as $tag)
-									<li><a href="#">{{$tag}}</a></li>
-									@endforeach
-									@endif
-								</ul>
-								-->
 							</div>
 						</div>        
 						<hr>
