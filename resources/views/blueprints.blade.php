@@ -37,8 +37,10 @@
     <div class="row">
         <!-- add survey-->
         <div class="col-sm-3">
-            <p><a href="{{ url('dashboard/encuestas/agregar') }}" class="btn_deafult">Crear encuesta &gt;</a></p>
             <!-- CREATE SURVEY -->
+            <p><a href="{{ url('dashboard/encuestas/agregar') }}" class="btn_deafult">Crear encuesta &gt;</a></p>
+            <!-- GET STATISTICS -->
+            <p><a href="{{ url('dashboard/encuestas/exportar/xlsx') }}" class="btn_deafult">Descargar datos de uso &gt;</a></p>
 
 
 

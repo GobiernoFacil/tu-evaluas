@@ -39,6 +39,73 @@ class Blueprints extends Controller
   }
 
   //
+  // [ E X P O R T ]
+  //
+  //
+  public function exportXLSX(){
+    $user = Auth::user();
+    $surveys = $user->level == 3 ? Blueprint::all() : $user->blueprints;
+
+    Excel::create('encuestas', function($excel) use($surveys, $user) {
+      $excel->setTitle("encuestas: datos");
+      $excel->setCreator('Tú Evalúas');
+      $excel->setDescription("Estadísticas de encuestas");
+      $excel->sheet("encuestas", function($sheet) use($surveys, $user){
+        $sheet->appendRow([
+          "título",
+          "ha concluido",
+          "es pública",
+          "es visible",
+          "etiquetas",
+          "categoría",
+          "subcategorías",
+          "está en proceso de autorización",
+          "tipo",
+          "ptp",
+          "ramo",
+          "programa",
+          "descripción",
+          "visitas",
+          "envíos",
+          "correos generados",
+
+          "usuario: email",
+          "usuario: tipo",
+          "usuario: unidad",
+          "usuario: ramo"
+        ]);
+        foreach($surveys as $blueprint){
+          $sheet->appendRow([
+            $blueprint->title,
+            ($blueprint->is_closed == 1 ? "sí" : "no"),
+            ($blueprint->is_public == 1 ? "sí" : "no"),
+            ($blueprint->is_visible == 1 ? "sí" : "no"),
+            $blueprint->tags,
+            $blueprint->category,
+            $blueprint->subcategory,
+            ($blueprint->pending == 1 ? "sí" : "no"),
+            $blueprint->type,
+            $blueprint->ptp,
+            $blueprint->branch,
+            $blueprint->program,
+            $blueprint->description,
+            $blueprint->applicants()->has('answers')->count(),
+            $blueprint->emails()->sum("emails"),
+            $blueprint->applicants()->count(),
+
+            $user->email,
+            ($user->level == 3 ? "administrador" : "funcionario público"),
+            $user->unit,
+            $user->branch
+
+          ]);
+        }
+      }); 
+
+    })->export("xlsx");
+  }
+
+  //
   // [ S E A R C H ]
   //
   //

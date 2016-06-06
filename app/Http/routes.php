@@ -96,6 +96,7 @@ Route::get('/', "Frontend@results");
     Route::post('dashboard/encuestas/resultados/crear', 'Blueprints@createResultsOnly');
     Route::get('dashboard/encuestas/eliminar/{id}', 'Blueprints@remove')->where('id', '[0-9]+');
     Route::get('dashboard/encuesta/test/{id}', 'Blueprints@show')->where('id', '[0-9]+');
+    Route::get('dashboard/encuestas/exportar/xlsx', 'Blueprints@exportXLSX');
     Route::get('dashboard/encuestas/{tipo?}/{page?}', 'Blueprints@index');
 
 
