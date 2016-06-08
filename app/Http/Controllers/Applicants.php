@@ -129,7 +129,7 @@ class Applicants extends Controller
     $options = [
       'user'      => $user,
       "blueprint" => $blueprint,
-      "total"     => $total,
+      "total"     => ($total > 500 ? 500 : $total),
       "type"      => $type
     ];
 
