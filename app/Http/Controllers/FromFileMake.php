@@ -87,7 +87,7 @@ class FromFileMake extends Controller
               $option->question_id  = $question->id;
               $option->blueprint_id = $blueprint->id;
               $option->description  = $options[$i];
-              $option->value        = $options[$i];//$i+1;
+              $option->value        = $i+1;//$options[$i];//$i+1;
               $option->name         = uniqid();
               $option->order_num    = $i;
               $option->save();
