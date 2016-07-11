@@ -19,3 +19,5 @@ public/js/bower_components
 public/css/src_sass
 composer.phar
 env.md
+
+*.sql.tar.gz
