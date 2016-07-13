@@ -95,9 +95,8 @@ class Frontend extends Controller
   function results(Request $request, $page = 1){
     if(empty($request->all())){
       $blueprints = Blueprint::where("is_visible", 1)
-      //->orWhere("is_public", 1)
       ->skip(($page-1) * self::PAGE_SIZE)->take(self::PAGE_SIZE)->get();
-      $total = Blueprint::where("is_public", 1)->count();
+      $total = Blueprint::where("is_visible", 1)->count();
     }
     else{
       $blueprints = $this->_search($request)
@@ -126,9 +125,27 @@ class Frontend extends Controller
   //
   //
   function openData(Request $request, $page = 1){
+    
+    if(empty($request->all())){
+      $blueprints = Blueprint::where("is_visible", 1)
+      ->whereNotNull("csv_file")
+      ->skip(($page-1) * self::PAGE_SIZE)->take(self::PAGE_SIZE)->get();
+      $total = Blueprint::where("is_visible", 1)->whereNotNull("csv_file")->count();
+    }
+    else{
+      $blueprints = $this->_search($request)
+                    ->where("is_visible", 1)
+                    ->whereNotNull("csv_file")
+                    ->skip(($page-1) * self::PAGE_SIZE)
+                    ->take(self::PAGE_SIZE)
+                    ->get();
+      $total      = $this->_search($request)->where("is_visible", 1)->count();
+    }
+    /*
       $blueprints = Blueprint::where("is_visible", 1)->whereNotNull("csv_file")
       ->skip(($page-1) * self::PAGE_SIZE)->take(self::PAGE_SIZE)->get();
       $total = Blueprint::where("is_public", 1)->whereNotNull("csv_file")->count();
+      */
 
     $categories = file_get_contents(public_path() . "/". "js/categories.json");
     $data = [];
