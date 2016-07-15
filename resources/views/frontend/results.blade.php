@@ -17,7 +17,7 @@
 @if ($surveys->count() > 0)
 <div class="bottom-buffer">
 	<div class="col-md-8">
-		<form id="fbp" name="filter-blueprints" method="get" action="{{url('resultados')}}" class="form_search">
+		<form id="fbp" name="filter-blueprints" method="get" action="{{url('resultados')}}#resultados" class="form_search">
 			<?php $category = $request->input('category') ? $categories->where("name", $request->input('category'))->first() : null; ?>
 			{!! csrf_field() !!}
         <div class="panel-group ficha-collapse" id="accordion">
@@ -87,7 +87,7 @@
 	</div>
 </div>
 <!-- tabala de resultados-->
-<div class="col-md-8">
+<div class="col-md-8"  id="resultados">
 	<table class="table table-striped table-hover">
 		<thead>
           <tr>
