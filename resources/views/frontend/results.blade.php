@@ -14,10 +14,10 @@
 		<hr class="red">
 	</div>
 </div>
-@if ($surveys->count() > 0)
+@if ($surveys->count() > 0 || $request->input('title'))
 <div class="bottom-buffer">
 	<div class="col-md-8">
-		<form id="fbp" name="filter-blueprints" method="get" action="{{url('resultados')}}#resultados" class="form_search">
+		<form id="fbp" name="filter-blueprints" method="get" action="{{url('resultados')}}#lista-de-resultados" class="form_search">
 			<?php $category = $request->input('category') ? $categories->where("name", $request->input('category'))->first() : null; ?>
 			{!! csrf_field() !!}
         <div class="panel-group ficha-collapse" id="accordion">
@@ -33,7 +33,7 @@
 				<div class="panel-collapse collapse in" id="panel-01">
 					<div class="panel-body">
   						<div class="row">
-  							<div class="col-md-2">Busca por atención: </div>
+  							<div class="col-md-2">Buscar: </div>
   							<div class="col-md-10">
 
 	  							<input class="form-control" name="title" placeholder="Palabra clave" type="text" value="{{$request->input('title')}}" >
@@ -73,7 +73,7 @@
 							</div>
 						</div>        
 						<hr>
-						<div class="bottom-buffer">
+						<div class="bottom-buffer" id="lista-de-resultados">
                             <div class="pull-left">
 	                            <input type="submit" value="Filtrar resultados" class="btn btn-primary">
 						    </div>
@@ -83,7 +83,7 @@
 			</div>
         </div>
 		</form>
-                        <hr>
+    <hr>
 	</div>
 </div>
 <!-- tabala de resultados-->
