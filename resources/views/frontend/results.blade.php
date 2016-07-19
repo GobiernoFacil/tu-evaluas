@@ -14,7 +14,7 @@
 		<hr class="red">
 	</div>
 </div>
-@if ($surveys->count() > 0 || $request->input('title'))
+@if ($surveys->count() > 0 || $request->input('title') || $request->input('category') || $request->input('survey-subs') || $request->input('survey-tags'))
 <div class="bottom-buffer">
 	<div class="col-md-8">
 		<form id="fbp" name="filter-blueprints" method="get" action="{{url('resultados')}}#lista-de-resultados" class="form_search">
@@ -88,6 +88,7 @@
 </div>
 <!-- tabala de resultados-->
 <div class="col-md-8"  id="resultados">
+  @if($surveys->count())
 	<table class="table table-striped table-hover">
 		<thead>
           <tr>
@@ -106,6 +107,9 @@
 			@endforeach
         </tbody>
 	</table>
+  @else
+  <p>No hay resultados para la búsqueda</p>
+  @endif
 </div>
 
 @else
