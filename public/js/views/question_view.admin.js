@@ -56,7 +56,9 @@ define(function(require){
     // THE INITIALIZE FUNCTION
     // ------------------------
     //
-    initialize : function(){
+    initialize : function(settings){
+      this.model.set({is_closed : settings.is_closed});
+      console.log(this.model.attributes);
       this.listenTo(this.model, 'remove', this.remove);
       this.listenTo(this.model, 'destroy', this.remove);
     },

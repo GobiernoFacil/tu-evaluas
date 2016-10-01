@@ -1,3 +1,7 @@
 <!-- [ THE LABEL ] -->
-<p><%= question %> <a class="update" href="#">editar</a></p>
+<p><%= question %> 
+<% if(!is_closed){ %>
+<a class="update" href="#">editar</a>
+<% } %>
+</p>
 

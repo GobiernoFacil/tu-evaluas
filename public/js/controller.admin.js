@@ -532,7 +532,9 @@ define(function(require){
     _render_question : function(model){
       var container      = this.$('#survey-question-list'),
           is_description = Number(model.get('is_description')),
-          item           = ! is_description ? new Question({model : model}) : new Description({model : model});
+          item           = ! is_description ? 
+          new Question({model : model, is_closed : this.blueprint.is_closed}) : 
+          new Description({model : model, is_closed : this.blueprint.is_closed});
 
       container.append(item.render().el);
       // this.render_section_menu();

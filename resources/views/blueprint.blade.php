@@ -263,8 +263,16 @@
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
 	  	<p id="survey-add-buttons">
-	  	  <a href="#" class="add-question">Agrega pregunta</a> | 
-	  	  <a href="#" class="add-text">Agrega texto(HTML)</a>
+	  	  <a style="{{! $blueprint->is_closed ? '' : 'display: none'}}" href="#" class="add-question">
+          Agrega pregunta
+        </a> 
+        <span style="{{! $blueprint->is_closed ? '' : 'display: none'}}">|</span> 
+	  	  <a style="{{! $blueprint->is_closed ? '' : 'display: none'}}" href="#" class="add-text">
+          Agrega texto(HTML)
+        </a>
+        <em style="{{$blueprint->is_closed ? '' : 'display: none'}}">
+          La encuesta ha terminado, no es posible agregar más preguntas
+        </em>
 	  	</p>
       
       <!-- [ NEW QUESTION FORM ] -->
