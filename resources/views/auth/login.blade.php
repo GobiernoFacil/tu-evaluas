@@ -11,7 +11,7 @@
   </head>
   <body class="login">
 <main role="main"> <!--content--> 
-	  <div class="video-banner" style="width: 100%; max-width: 100%; height: 300px; background: grey url('/img/bannerTuEvaluas_2.png') no-repeat center center; background-size: cover; padding: 0 !important;"> 
+	  <div class="video-banner" style="width: 100%; max-width: 100%; height: 300px; background: grey url('img/bannerTuEvaluas_2.png') no-repeat center center; background-size: cover; padding: 0 !important;"> 
 	</div> 
 	
 <div class="container vertical-buffer"> 
