@@ -57,6 +57,7 @@ Route::get('/', "Frontend@results");
   Route::get('encuesta/municipios/{id}', 'Applicants@cities');
   Route::get('encuesta/localidades/{estado}/{municipio}', 'Applicants@locations');
   Route::post('encuesta/respuestas', 'Applicants@saveAnswer');
+  Route::post('encuesta/reiniciar', 'Applicants@resetSurvey');
 
   Route::group(['middleware' => 'auth'], function () {
     // USERS CRUD
@@ -97,7 +98,7 @@ Route::get('/', "Frontend@results");
     Route::get('dashboard/encuestas/eliminar/{id}', 'Blueprints@remove')->where('id', '[0-9]+');
     Route::get('dashboard/encuesta/test/{id}', 'Blueprints@show')->where('id', '[0-9]+');
     Route::get('dashboard/encuestas/exportar/xlsx', 'Blueprints@exportXLSX');
-    Route::get('dashboard/encuestas/{tipo?}/{page?}', 'Blueprints@index');
+    Route::get('dashboard/encuestas/{tipo?}', 'Blueprints@index');
 
 
     // APPLICANTS

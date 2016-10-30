@@ -315,6 +315,21 @@ class Applicants extends Controller
     return response()->json($locations)->header('Access-Control-Allow-Origin', '*');
   }
 
+  //
+  // [ RESET SURVEY ]
+  //
+  //
+  public function resetSurvey(Request $request){
+    $applicant = Applicant::where('form_key', $request->input('form_key'))->first();
+
+    if($applicant){
+      return response()->json( $applicant->answers()->delete() );
+    }
+    else{
+      return response()->json(false);
+    }
+  }
+
   /*
   * G E N E R A L   F U N C T I O N S
   * --------------------------------------------------------------------------------
@@ -325,12 +340,6 @@ class Applicants extends Controller
   //
   //
   public function sendForm($applicant, $header){
-    /*
-    Mail::send('email.invitation', ['applicant' => $applicant], function ($m) use ($applicant) {
-      $m->from('howdy@tuevaluas.com.mx', 'Howdy friend');
-      $m->to($applicant->user_email, "amigo")->subject('Invitación a opinar!');
-    });
-    */
 
     Mail::queue('email.invitation', ['applicant' => $applicant], function ($m) use ($applicant, $header){
       $m->from('howdy@tuevaluas.com.mx', 'Tú Evalúas');

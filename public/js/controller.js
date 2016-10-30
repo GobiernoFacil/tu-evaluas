@@ -89,6 +89,13 @@ define(function(require){
       // [ RENDER ]
       // genera el HTML para el formulario
       this.render();
+
+      // [ NEW STUFF ]
+      // si se inicia el cuestionario, y tiene respuestas preexistentes, pregunta si las debe eliminar al
+      // contestar nuevamente
+      if(this.answers.length){
+        this.reset_form();
+      }
     },
 
     //
@@ -190,6 +197,31 @@ define(function(require){
       // [7] actualiza el pointer
         this.navigation_pointer++;
 
+      }
+    },
+
+    //
+    // [ RESET FORM ]
+    // pregunta si desea el usuario reiniciar su encuesta. En caso de aceptar, elimina todas sus respuestas;
+    // en caso contrario, simplemente muestra que su encuesta ya ha sido finalizada.
+    // 
+    reset_form : function(){
+      // [1] pregunta si quiere eliminar sus respuestas previas
+      var reset = confirm("deseas reiniciar tu encuesta? \n Esto eliminará todas tus respuestas previas"),
+          last  = this.sections.length - 1;
+      // [a] si las quiere eliminar, envía la petición post para eliminarlas
+      if(reset){
+        $.post("reiniciar", {
+          form_key : agentesFormSettings.key, _token : document.querySelector("input[name='_token']").value
+        }, function(r){
+          //console.log(r);
+        }, "json");
+      }
+      // [b] si no las quiere eliminar, lo lleva al final del formulario
+      else{
+        this.$('#survey .fieldset').remove();
+        this.$('#annoying-message').hide();
+        this.$('#survey').append(this.sections[last].el);
       }
     },
 

@@ -24,7 +24,7 @@ class Blueprints extends Controller
   // [ L I S T ]
   //
   //
-  public function index(Request $request, $type = "todas", $page = 1){
+  public function index(Request $request, $type = "todas"){
     $user = Auth::user();
     $data = [];
 
@@ -407,7 +407,18 @@ class Blueprints extends Controller
   public function remove(Request $request, $id){
     $user = Auth::user();
     $blueprint = Blueprint::find($id);
-    if($blueprint && ($user->level == 3 || $user->id == $blueprint->user_id)){
+    if($blueprint && $user->level == 3){
+      $title = $blueprint->title;
+
+      $blueprint->questions()->delete();
+      $blueprint->options()->delete();
+      $blueprint->rules()->delete();
+      $blueprint->delete();
+
+      $request->session()->flash('status', ['type' => 'delete', 'name' => $title]);
+      return redirect('dashboard/encuestas');
+    }
+    elseif($blueprint && $user->id == $blueprint->user_id && !$blueprint->is_public && !$blueprint->is_closed){
       $title = $blueprint->title;
 
       $blueprint->questions()->delete();

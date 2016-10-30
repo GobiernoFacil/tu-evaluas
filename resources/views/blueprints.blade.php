@@ -128,7 +128,11 @@
 
                  <div class="col-sm-3">
                   <a href="{{url('dashboard/encuesta/test/' . $survey->id)}}" class="btn_test">Previsualizar</a>
+
+                  @if($user->level == 3 || (!$survey->is_public && !$survey->is_closed))
                   <a data-title="{{$survey->title}}" href="{{url('dashboard/encuestas/eliminar/' . $survey->id)}}" class="danger">Eliminar</a>
+                  @endif
+
                  </div>
               </li>
             <?php endforeach; ?>

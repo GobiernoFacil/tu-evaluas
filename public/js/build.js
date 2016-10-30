@@ -1,18 +1,7 @@
-/*
-({
-    baseUrl: ".",
-    paths: {
-        jquery: "some/other/jquery"
-    },
-    name: "main",
-    out: "main-built.js"
-})
-*/
-
 ({
   baseUrl : '.',
   paths : {
-  	//requireLib : 'bower_components/requirejs/require',
+  	requireLib : 'bower_components/requirejs/require',
     jquery     : 'bower_components/jquery/dist/jquery',
     underscore : "bower_components/underscore/underscore",
     backbone   : "bower_components/backbone/backbone",
@@ -24,6 +13,7 @@
       exports : "Backbone"
     }
   },
+  include : ['requireLib'],
   name : "main",
   out : "main-built.js"
 })
