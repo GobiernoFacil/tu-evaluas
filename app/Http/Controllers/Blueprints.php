@@ -598,9 +598,42 @@ class Blueprints extends Controller
 
     exec("php {$path}/artisan blueprint:file {$id} xlsx > /dev/null &");
     exec("php {$path}/artisan blueprint:file {$id} csv > /dev/null &");
+    exec("php {$path}/artisan blueprint:file {$id} xlsx 1 > /dev/null &");
     
     $request->session()->flash('status', ['type' => 'file create', 'name' => $blueprint->title]);
     return redirect("dashboard/encuesta/" . $id);
+  }
+
+  //
+  // [ DOWNLOAD FULL XLSX WITH PERSONAL DATA ]
+  //
+  //
+  public function getFullXLSX($id){
+    $user = Auth::user();
+    if($user->level > 2){
+      $blueprint = Blueprint::find($id);
+    }
+    else{
+      $blueprint = $user->blueprints()->find($id);
+    }
+
+    if($blueprint){
+
+      //return response()->file(storage_path('app') . "/" . $blueprint->csv_file . ".xlsx");
+      $file = storage_path('app') . "/" . $blueprint->csv_file . ".xlsx";
+      header('Content-Description: File Transfer');
+      header('Content-Type: application/octet-stream');
+      header('Content-Disposition: attachment; filename="'.basename($file).'"');
+      header('Expires: 0');
+      header('Cache-Control: must-revalidate');
+      header('Pragma: public');
+      header('Content-Length: ' . filesize($file));
+      readfile($file);
+    exit;
+    }
+    else{
+      return redirect("dashboard/encuestas");
+    }
   }
 
   //

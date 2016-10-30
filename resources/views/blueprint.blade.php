@@ -203,7 +203,8 @@
               <a download href="{{url('csv/' . $blueprint->csv_file)}}">descargar resultados</a>
             @elseif(!empty($blueprint->csv_file))
               <a download href="{{url('csv/' . $blueprint->csv_file . '.csv')}}">descargar CSV</a> <br>
-              <a download href="{{url('csv/' . $blueprint->csv_file . '.xlsx')}}">descargar XLS</a> <br>
+              <a download href="{{url('csv/' . $blueprint->csv_file . '.xlsx')}}">descargar XLSX</a> <br>
+              <a href='{{url("dashboard/encuestas/descargar/xlsx-completo/{$blueprint->id}")}}'>descargar XLSX con datos personales</a>
               <a href="{{url('dashboard/encuestas/crear/csv/' . $blueprint->id)}}" class="create-survey-btn">Generar archivos nuevamente</a>
             @else
               Para descargar o generar archivos, es necesario que la encuesta esté en curso o haya terminado.

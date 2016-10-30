@@ -99,6 +99,7 @@ Route::get('/', "Frontend@results");
     Route::get('dashboard/encuesta/test/{id}', 'Blueprints@show')->where('id', '[0-9]+');
     Route::get('dashboard/encuestas/exportar/xlsx', 'Blueprints@exportXLSX');
     Route::get('dashboard/encuestas/{tipo?}', 'Blueprints@index');
+    Route::get('dashboard/encuestas/descargar/xlsx-completo/{id}', 'Blueprints@getFullXLSX');
 
 
     // APPLICANTS

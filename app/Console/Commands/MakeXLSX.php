@@ -57,7 +57,7 @@ class MakeXLSX extends Command
      *
      * @var string
      */
-    protected $signature = 'blueprint:file {blueprint} {type=xlsx}';
+    protected $signature = 'blueprint:file {blueprint} {type=xlsx} {full=0}';
 
     /**
      * The console command description.
@@ -85,12 +85,15 @@ class MakeXLSX extends Command
     {
        $id   = $this->argument('blueprint');
        $type = $this->argument('type');
+       $full = (int)$this->argument('full');
+       /// $type, public_path('csv')
+       $path = $full ? storage_path('app') :  public_path('csv');
        $user = Auth::user();
 
        $blueprint = Blueprint::with("questions.options")->find($id);
        $title     = $this->sluggable($blueprint->title);
 
-       Excel::create($title, function($excel) use($blueprint) {
+       Excel::create($title, function($excel) use($blueprint, $full) {
       // Set the title
       $excel->setTitle($blueprint->title);
       // Chain the setters
@@ -99,7 +102,7 @@ class MakeXLSX extends Command
       // Call them separately
       $excel->setDescription("Resultado desagregados");
         // add a sheet for each day, and set the date as the name of the sheet
-      $excel->sheet("encuestas", function($sheet) use($blueprint){
+      $excel->sheet("encuestas", function($sheet) use($blueprint, $full){
         //var_dump($titles->toArray());
         $questions = $blueprint->questions;
         $titles    = $questions->pluck("question");
@@ -155,6 +158,15 @@ class MakeXLSX extends Command
                        ->first();//->text_value;
               $row[] = $open_answer ? $open_answer->text_value : "no contestó";
             }
+
+            elseif($question->type == "personal"){
+              $open_answer = $applicant
+                       ->answers()
+                       ->where("question_id", $question->id)
+                       ->get()
+                       ->first();//->text_value;
+              $row[] = $open_answer && $full ? $open_answer->text_value : "";
+            }
             
             else{
               $num_value = $applicant
@@ -168,7 +180,7 @@ class MakeXLSX extends Command
           $sheet->appendRow($row);
         }
       });
-    })->store($type, public_path('csv'));
+    })->store($type, $path);
 
     $blueprint->csv_file = $title;
     $blueprint->update();
