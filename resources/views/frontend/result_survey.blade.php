@@ -41,12 +41,14 @@
 				    	  <h5>{{$question->question}}</h5>
 				    	  <?php 
 				    	    $options = $question->options;
-				    	    $total   = $question->answers->count();
+				    	    $total   = App\Models\Answer::where("question_id", $question->id)->count();
+				    	    //$question->answers->count();
 				    	  ?>
 				    	  @foreach($options as $option)
 				    	     <?php 
 				    	       $opt    = $option->description;
-				    	       $num    = $question->answers->where("text_value", $opt)->count(); 
+				    	       $num    = App\Models\Answer::where("question_id", $question->id)->where("text_value", $opt)->count();
+				    	       //$question->answers()->where("text_value", $opt)->count(); 
 				    	       $_title  = $option->description;
 				    	       $amount = $total ? round(($num / $total) * 100, 2) : 0;
 				    	     ?>

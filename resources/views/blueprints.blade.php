@@ -123,7 +123,10 @@
                 </div>
 
                 <div class="col-sm-3">
-                {{$survey->applicants()->has('answers')->count()}} | {{$survey->emails()->sum("emails")}} | {{$survey->applicants()->count()}}
+                <?php
+                  $aplicaron = App\Models\Answer::select(DB::raw("COUNT(distinct(form_key)) as total"))->where("blueprint_id", $survey->id)->first();
+                ?>
+               {{$aplicaron->total}}| {{$survey->emails()->sum("emails")}} | {{$survey->applicants()->count()}}
                 </div>
 
                  <div class="col-sm-3">
