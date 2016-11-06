@@ -280,7 +280,7 @@ define(function(require){
         var res = this.$(e.currentTarget).val();
       }
       
-      if(res){
+      if(res || this.$(e.currentTarget).attr("type") == "checkbox"){
       // [2] genera el objeto de respuesta al servidor
         var server_res = {
           question_value : res,

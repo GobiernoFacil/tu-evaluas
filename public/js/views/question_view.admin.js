@@ -91,7 +91,6 @@ define(function(require){
       this.$el.html(this.editor(this.model.attributes));
       this.$('.question-panel-editor').show();
       // [2] selecciona el tipo de pregunta
-      //if(Number(this.model.get('is_location'))){
       if(this.model.get('type') == 'location-a'){
         this.$('input[value="location-a"]')[0].checked = 1;
       }
@@ -123,6 +122,7 @@ define(function(require){
       // [3] agrega las secciones, si se necesita
       if(this.model.get('type') == 'multiple' || this.model.get('type') == 'multiple-multiple'/*options.length*/){
         this._render_options(options);
+        console.log("is multiple");
       }
       // [4] agrega el selector de sección
       this.render_section_selector();
@@ -167,7 +167,7 @@ define(function(require){
 
     toggle_options : function(e){
       var el = this.el.querySelectorAll('.options-container')[0];
-      if(e.target.value === 'multiple'){
+      if(e.target.value === 'multiple' || e.target.value === 'multiple-multiple'){
         el.style.display = '';
         if(! this.el.getElementsByTagName('ul')[0].children.length){
           this._render_new_option();
