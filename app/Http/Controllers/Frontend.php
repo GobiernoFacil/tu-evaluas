@@ -251,7 +251,7 @@ class Frontend extends Controller
         $city_name = $city ? $city->nombre : "-";
 
         $location_key  = substr($inegi_key->text_value, 5, 4);
-        $location = !empty($location_key) ? Location::where("clave", $location_key)->where("municipio_id", $city->id)->first() : null;
+        $location = !empty((int)$location_key) ? Location::where("clave", $location_key)->where("municipio_id", $city->id)->first() : null;
         $location_name = $location ? $location->nombre : "-";
 
         $name =  $location_name . ", " . $city_name . ", " . $state_name;
