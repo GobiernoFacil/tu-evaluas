@@ -13,7 +13,7 @@
           <form id="fbp" name="filter-blueprints" method="get" action="{{url('dashboard/encuestas/buscar/avanzado')}}">
             <?php $category = $request->input('category') ? $categories->where("name", $request->input('category'))->first() : null; ?>
             {!! csrf_field() !!}
-            <p>Título: <input type="text" name="title" value="{{$request->input('title')}}"></p>
+            <p>Buscar: <input type="text" name="title" value="{{$request->input('title')}}"></p>
 
             <p>
               <select name="category" id="survey-category">
