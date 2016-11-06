@@ -215,6 +215,13 @@ define(function(require){
           form_key : agentesFormSettings.key, _token : document.querySelector("input[name='_token']").value
         }, function(r){
           //console.log(r);
+          // vacía todos los campos
+          $("input[type='text']").val("");
+          $("input[type='text']").val("");
+          $("input[type='number']").val("");
+          $("input[type='radio']").removeAttr('checked');
+          $("input[type='checkbox']").removeAttr('checked');
+          $('select option:first-child').attr("selected", "selected");
         }, "json");
       }
       // [b] si no las quiere eliminar, lo lleva al final del formulario
