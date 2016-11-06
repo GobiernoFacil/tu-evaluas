@@ -97,7 +97,11 @@
 				    	@elseif(in_array($question->type, ["location-a", "location-b", "location-c"]))
 				    	 <h5>{{$question->question}}</h5>
 				    	  <?php 
-				    	    $options = $question->answers()->select(DB::raw('count(*) as total, text_value'))->groupBy("text_value")->get();
+				    	    $options = $question->answers()->select(DB::raw('count(*) as total, text_value'))
+				    	    ->where(function($q){
+				    	    	$q->distinct("form_key");
+				    	    })
+				    	    ->groupBy("text_value")->get();
 				    	    $total   = $question->answers->count();
 				    	  ?>
 				    	  @foreach($options as $option)
