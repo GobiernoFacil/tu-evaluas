@@ -244,7 +244,7 @@ class Frontend extends Controller
 
       case "location-c":
         $state_key  = substr($inegi_key->text_value, 0, 2);
-        $state_name = !empty($state_key) ? $this->states[$state_key] : "-";
+        $state_name = !empty((int)$state_key) ? $this->states[$state_key] : "-";
 
         $city_key  = substr($inegi_key->text_value, 2, 3);
         $city      = !empty($city_key) ? City::where("clave", $city_key)->where("estado_id", (int)$state_key)->first() : null;
