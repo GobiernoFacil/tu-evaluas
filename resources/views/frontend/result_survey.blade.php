@@ -98,9 +98,7 @@
 				    	 <h5>{{$question->question}}</h5>
 				    	  <?php 
 				    	    $options = $question->answers()->select(DB::raw('count(*) as total, text_value'))
-				    	    ->where(function($q){
-				    	    	$q->distinct("form_key");
-				    	    })
+				    	    ->distinct("form_key")
 				    	    ->groupBy("text_value")->get();
 				    	    $total   = $question->answers->count();
 				    	  ?>
