@@ -73,7 +73,7 @@ define(function(require){
       // [1] genera una colección de opciones para cada pregunta. La lista de opciones
       //     está disponible en el controller.
         var opt = new Backbone.Collection(this.controller.q_options.where({question_id : Number(question.id)}));
-        console.log(opt.length);
+        console.log(opt.length, question.id);
       // [2] se genera un View con la pregunta, y se le pasan las siguiente variables:
       //     * el modelo de la pregunta (question)
       //     * la colección de opciones (opt)
