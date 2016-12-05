@@ -1,6 +1,6 @@
 <!-- [ THE LABEL ] -->
-<p>(<%=!is_closed %>) <%= question %> 
-<% if(!is_closed){ %>
+<p><%= question %> 
+<% if(!Number(is_closed)){ %>
 <a class="update" href="#">editar</a>
 <% } %>
 </p>
