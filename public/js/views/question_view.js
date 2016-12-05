@@ -94,6 +94,7 @@ define(function(require){
       // [ THE QUESTION TYPES ]
       var type = this.model.get('type');
 
+      console.log(this.model.id, this.model.get('type'));
       // [ THE DESCRIPTION ] 
       if(Number(this.model.get('is_description'))){
         this._render_description();
