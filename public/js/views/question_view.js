@@ -94,7 +94,6 @@ define(function(require){
       // [ THE QUESTION TYPES ]
       var type = this.model.get('type');
 
-      console.log(this.model.id, this.model.get('type'));
       // [ THE DESCRIPTION ] 
       if(Number(this.model.get('is_description'))){
         this._render_description();
@@ -140,7 +139,6 @@ define(function(require){
     },
 
     _render_checkbox : function(model){
-      console.log(this.model.attributes);
       this.$el.html(this.template(this.model.attributes));
       // [ THE OPTIONS ]
       this.opt.each(function(option){
