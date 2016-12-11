@@ -57,6 +57,7 @@ define(function(require){
     // ------------------------
     //
     initialize : function(settings){
+      console.log("we are the same at the bottom!");
       this.model.set({is_closed : settings.is_closed});
       this.listenTo(this.model, 'remove', this.remove);
       this.listenTo(this.model, 'destroy', this.remove);

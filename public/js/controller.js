@@ -66,6 +66,12 @@ define(function(require){
       // dividido el cuestionario y las reglas que se aplican para navegar
       // en él.
       this.q_options = new Backbone.Collection(agentesFormSettings.options);
+      this.q_options.each(function(op){
+        op.set({
+          question_id : Number(op.get("question_id"))
+        });
+      });
+
       this.answers   = new Backbone.Collection(agentesFormSettings.answers);
       this.rules     = new Backbone.Collection(agentesFormSettings.rules);
       this.sections  = [];

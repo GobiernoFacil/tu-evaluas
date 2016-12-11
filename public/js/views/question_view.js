@@ -139,7 +139,6 @@ define(function(require){
     },
 
     _render_checkbox : function(model){
-      console.log(this.model.attributes);
       this.$el.html(this.template(this.model.attributes));
       // [ THE OPTIONS ]
       this.opt.each(function(option){

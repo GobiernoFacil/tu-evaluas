@@ -411,6 +411,8 @@
         rules     : <?= json_encode($rules); ?>
       };
 
+      console.log("we are the same");
+
       // survey-app-questions
       // the-survey
 
