@@ -138,11 +138,15 @@ define(function(require){
       /**/
       this.blueprint       = SurveySettings.blueprint;
       this.collection      = new Backbone.Collection(this.blueprint.questions);
+      // map to int question sections
+      this.collection.each(function(q){
+        q.set({section_id : Number(q.get("section_id"))});
+      });
       this.collection.url  = BASE_PATH + "/dashboard/preguntas";//'/index.php/surveys/question';
       this.rules           = new Backbone.Collection(this.blueprint.rules);
       this.rules.url      = BASE_PATH + "/dashboard/reglas";//'/index.php/surveys/rule';
       this.current_section = 0; // show all questions
-      this.collection.comparator = function(m){ return m.get("section_id")};
+      this.collection.comparator = function(m){ return Number(m.get("section_id"))};
       this.collection.sort();
 
       // THE RULES
@@ -168,7 +172,6 @@ define(function(require){
     update_ui : function(model, response){
       if(response.remove_rule){
         var r = this.rules.where({question_id : model.id});
-        console.log(r);
         this.rules.remove(r);
       }
     },
@@ -806,7 +809,6 @@ define(function(require){
 
     __save_question : function(e){
       e.preventDefault();
-      console.log("yahoo!!!");
     },
 
     // [ REMOVE QUESTION ]

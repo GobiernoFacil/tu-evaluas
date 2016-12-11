@@ -58,7 +58,6 @@ define(function(require){
     //
     initialize : function(settings){
       this.model.set({is_closed : settings.is_closed});
-      console.log(this.model.attributes);
       this.listenTo(this.model, 'remove', this.remove);
       this.listenTo(this.model, 'destroy', this.remove);
     },
@@ -116,13 +115,11 @@ define(function(require){
         this.$('input[value="number"]')[0].checked = 1;
       }
       else{
-        console.log(this.model.get('type'));
         alert("pregunta con formato desconocido!");
       }
       // [3] agrega las secciones, si se necesita
       if(this.model.get('type') == 'multiple' || this.model.get('type') == 'multiple-multiple'/*options.length*/){
         this._render_options(options);
-        console.log("is multiple");
       }
       // [4] agrega el selector de sección
       this.render_section_selector();
