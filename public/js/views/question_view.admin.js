@@ -57,7 +57,6 @@ define(function(require){
     // ------------------------
     //
     initialize : function(settings){
-      console.log("we are the same at the bottom!");
       this.model.set({is_closed : settings.is_closed});
       this.listenTo(this.model, 'remove', this.remove);
       this.listenTo(this.model, 'destroy', this.remove);
@@ -83,7 +82,6 @@ define(function(require){
     render_editor : function(e){
       if(e !== void 0){
         e.preventDefault();
-        // console.log(e.currentTarget.getAttribute("class"));
       }
       // [0] configura algunas variables
       var options = this.model.get('options');

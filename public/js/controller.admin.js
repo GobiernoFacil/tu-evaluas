@@ -96,7 +96,6 @@ define(function(require){
     //
     //
     initialize : function(){
-      console.log("we are the same inside to");
 
       $("#ubp").validate({
         rules : {
