@@ -214,7 +214,8 @@
     $('#search-survey .typeahead').typeahead(null, {
       name: 'query',
       display: 'title',
-      source: surveys
+      source: surveys,
+      limit: 20
     });
 
 
@@ -245,7 +246,8 @@
     $('#search-user .typeahead').typeahead(null, {
       name: 'query',
       display: 'email',
-      source: users
+      source: users,
+      limit:20
     });
     @endif
 
