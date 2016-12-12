@@ -140,6 +140,7 @@
           
 		  <div class="divider"></div>
           <!-- BANNER -->
+          <!--
           <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
               <p><strong>Selecciona la portada</strong></p>
@@ -147,8 +148,10 @@
               <p><input type="file" name="survey-banner" id="survey-banner"></p>
             </div>
           </div>
+          <div class="divider"></div>
+          -->
 
-       <div class="divider"></div>
+        
           <!-- SUBMIT -->
           <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
