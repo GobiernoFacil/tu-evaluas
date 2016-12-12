@@ -39,7 +39,8 @@ class Applicants extends Controller
   //
   public function index(){
     $user = Auth::user();
-    $blueprints = $user->level == 3 ? Blueprint::with("applicants")->get() : Blueprint::with("applicants")->where("user_id",$user->id )->get();
+    $blueprints = $user->level == 3 ? Blueprint::with("applicants")->where("is_closed", 0)->where("is_visible", 1)->get() : 
+    Blueprint::with("applicants")->where("user_id",$user->id )->where("is_closed", 0)->where("is_visible", 1)->get();
    
     $data['title']       = 'Encuestas por aplicar Tú Evalúas';
     $data['description'] = '';
@@ -129,7 +130,7 @@ class Applicants extends Controller
     $options = [
       'user'      => $user,
       "blueprint" => $blueprint,
-      "total"     => ($total > 500 ? 500 : $total),
+      "total"     => ($total > 1000 ? 1000 : $total),
       "type"      => $type
     ];
 
@@ -144,7 +145,8 @@ class Applicants extends Controller
         // add a sheet for each day, and set the date as the name of the sheet
       $excel->sheet("encuestas", function($sheet) use($options){
         foreach($this->makeRange($options['total']) as $i){
-          $form_key = str_replace("/", "", Hash::make('blueprint' . $options['blueprint']->id . uniqid($i)));
+          $form_key = md5('blueprint' . $options['blueprint']->id . uniqid($i));
+          //Hash::make('blueprint' . $options['blueprint']->id . uniqid($i)));
           
           $applicant = Applicant::firstOrCreate([
             "blueprint_id" => $options['blueprint']->id, 

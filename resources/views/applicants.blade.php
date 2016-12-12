@@ -106,7 +106,7 @@
 			  </p>
 			  <p>
 			    Número de cuestionarios por generar <br>
-          (500 máximo) <br>
+          (1000 máximo) <br>
 			    <input name="total" type="text">
 			  </p>
 			  <p>
