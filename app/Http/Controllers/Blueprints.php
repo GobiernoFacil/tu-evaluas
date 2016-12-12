@@ -75,6 +75,7 @@ class Blueprints extends Controller
           "usuario: ramo"
         ]);
         foreach($surveys as $blueprint){
+          $_user = $blueprint->user;
           $sheet->appendRow([
             $blueprint->title,
             ($blueprint->is_closed == 1 ? "sí" : "no"),
@@ -93,10 +94,10 @@ class Blueprints extends Controller
             $blueprint->emails()->sum("emails"),
             $blueprint->applicants()->count(),
 
-            $user->email,
-            ($user->level == 3 ? "administrador" : "funcionario público"),
-            $user->unit,
-            $user->branch
+            $_user->email,
+            ($_user->level == 3 ? "administrador" : "funcionario público"),
+            $_user->unit,
+            $_user->branch
 
           ]);
         }
