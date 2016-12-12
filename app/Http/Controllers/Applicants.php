@@ -70,7 +70,7 @@ class Applicants extends Controller
 
     // validate the title
     $this->validate($request, [
-      'email' => 'required|email'
+      'email' => 'required|email',
     ], $messages);
 
     $user      = Auth::user();
@@ -170,7 +170,19 @@ class Applicants extends Controller
   //
   //
   function sendEmails(Request $request){
-    if (! $request->hasFile('list')) return redirect("dashboard/encuestados");
+    // if (! $request->hasFile('list')) return redirect("dashboard/encuestados");
+    $messages = [
+      'header.required' => 'Es necesario un título',
+      'list.required'   => 'Es necesario el archivo con los correos',
+      'list.mimetypes'  => 'El archivo debe ser excel'
+
+    ];
+
+    // validate the title
+    $this->validate($request, [
+      'header' => 'required',
+      'list' => 'required|mimetypes:application/excel,application/vnd.ms-excel,application/x-excel,application/x-msexcel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    ], $messages);
 
     $user      = Auth::user();
     $creator   = $user->id;

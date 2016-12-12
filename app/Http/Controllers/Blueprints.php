@@ -267,11 +267,12 @@ class Blueprints extends Controller
     $messages = [
       'title.required'            => 'El título del formulario es un campo necesario',
       'the-results-file.required' => 'Es necesario subir el archivo con los resultados',
+      'the-results-file.mimetypes' => 'El archivo debe ser CSV o Excel',
     ];
     // validate the title && file type
     $this->validate($request, [
       'title'            => 'required',
-      'the-results-file' => 'required'
+      'the-results-file' => 'required|mimetypes:application/excel,application/vnd.ms-excel,application/x-excel,application/x-msexcel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv'
     ], $messages);
 
     //

@@ -25,10 +25,16 @@ class FromFileMake extends Controller
 
   public function questions(Request $request){
     // [1] validate the title and the CSV
+    $messages = [
+      'title.required'    => 'El título es requerido',
+      'the-csv.required'  => 'El archivo de excel es requerido',
+      'the-csv.mimetypes' => 'El archivo debe ser excel',
+    ];
+
     $this->validate($request, [
         'title'   => 'bail|required|max:255',
-        'the-csv' => 'required'
-    ]);
+        'the-csv' => 'required|mimetypes:application/excel,application/vnd.ms-excel,application/x-excel,application/x-msexcel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    ], $messages);
     
 
     // [2] save the quiz blueprint
