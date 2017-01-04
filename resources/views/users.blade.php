@@ -217,13 +217,13 @@
     });
 
     $('#search-user .typeahead').typeahead(null, {
-      name: 'query',typeahead
+      name: 'query',
       display: 'email',
       source: users,
       limit : 20
     });
 
-    $('.').bind('typeahead:select', function(ev, suggestion){
+    $('.typeahead').bind('typeahead:select', function(ev, suggestion){
       console.log(suggestion);
       if(suggestion.email){
         window.location.href = "{{url('dashboard/usuario')}}/" + suggestion.id;
