@@ -162,6 +162,7 @@ define(function(require){
             condition = true;
             for(var i = 0; i < rules.length; i++){
               var question = this.collection.findWhere({id : rules[i].question});
+              console.log(question);
               var value    = question.get('default_value');
               condition    = rules[i].val.indexOf(value) > -1;
               if(!condition) break;
