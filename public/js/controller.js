@@ -129,7 +129,6 @@ define(function(require){
       // antes de pasar a la siguiente sección. Si le falta alguna,
       // se le indica mediante un recuadro rosa que le falta contestar
       // esa pregunta. Porque #YOLO
-      console.log("funciona A");
       if(!agentesFormSettings.is_test){
         var errors = this._validate_section();
         if(errors.length){
@@ -140,6 +139,7 @@ define(function(require){
           return false;
         }
       }
+      console.log("funciona B");
       // [ THE n SECTION ]
       // dibuja la siguiente sección, siempre y cuando exista!
       // [1] obtiene la siguiente posición del formulario
