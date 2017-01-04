@@ -85,7 +85,7 @@
         creation_date  : '2015-02-23 12:14:59',
         default_value  : null,
         id             : '666666',
-        question       : '<p>gracias por participar en este estudio</p>',
+        question       : '<p>Gracias por participar en este estudio</p>',
         is_description : '1',
         order_num      : '1',
         section_id     : '666',

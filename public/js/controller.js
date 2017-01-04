@@ -162,8 +162,6 @@ define(function(require){
             condition = true;
             for(var i = 0; i < rules.length; i++){
               var question = this.collection.findWhere({id : Number(rules[i].question)});
-              console.log("funciona B");
-              console.log(question ,rules[i], i, rules[i].question, rules);
               var value    = question.get('default_value');
               condition    = rules[i].val.indexOf(value) > -1;
               if(!condition) break;
@@ -171,8 +169,6 @@ define(function(require){
           }
           else{
             var question = this.collection.findWhere({id : Number(rules.question)});
-            console.log("funciona C");
-            console.log(question, rules);
             var value    = question.get('default_value');
             condition    = rules.val.indexOf(value) > -1
           }
@@ -224,7 +220,6 @@ define(function(require){
         $.post("reiniciar", {
           form_key : agentesFormSettings.key, _token : document.querySelector("input[name='_token']").value
         }, function(r){
-          //console.log(r);
           // vacía todos los campos
           $("input[type='text']").val("");
           $("input[type='text']").val("");
