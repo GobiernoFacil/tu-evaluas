@@ -171,6 +171,8 @@ define(function(require){
           }
           else{
             var question = this.collection.findWhere({id : rules.question});
+            console.log("funciona C");
+            console.log(question, rules);
             var value    = question.get('default_value');
             condition    = rules.val.indexOf(value) > -1
           }
