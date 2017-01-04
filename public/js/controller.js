@@ -129,6 +129,7 @@ define(function(require){
       // antes de pasar a la siguiente sección. Si le falta alguna,
       // se le indica mediante un recuadro rosa que le falta contestar
       // esa pregunta. Porque #YOLO
+      console.log("funciona A");
       if(!agentesFormSettings.is_test){
         var errors = this._validate_section();
         if(errors.length){
@@ -162,7 +163,6 @@ define(function(require){
             condition = true;
             for(var i = 0; i < rules.length; i++){
               var question = this.collection.findWhere({id : rules[i].question});
-              console.log(question);
               var value    = question.get('default_value');
               condition    = rules[i].val.indexOf(value) > -1;
               if(!condition) break;

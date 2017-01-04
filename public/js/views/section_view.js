@@ -101,7 +101,6 @@ define(function(require){
     //
     next : function(e){
       e.preventDefault();
-      console.log("funciona");
       // la función de render_next() está definida en controller.js, que es el
       // archivo que carga este script
       this.controller.render_next();
