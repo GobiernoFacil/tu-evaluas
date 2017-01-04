@@ -161,7 +161,7 @@ define(function(require){
           if(_.isArray(rules)){
             condition = true;
             for(var i = 0; i < rules.length; i++){
-              var question = this.collection.findWhere({id : rules[i].question});
+              var question = this.collection.findWhere({id : Number(rules[i].question)});
               console.log("funciona B");
               console.log(question ,rules[i], i, rules[i].question, rules);
               var value    = question.get('default_value');
@@ -170,7 +170,7 @@ define(function(require){
             }
           }
           else{
-            var question = this.collection.findWhere({id : rules.question});
+            var question = this.collection.findWhere({id : Number(rules.question)});
             console.log("funciona C");
             console.log(question, rules);
             var value    = question.get('default_value');
