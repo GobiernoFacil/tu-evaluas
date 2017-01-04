@@ -139,7 +139,6 @@ define(function(require){
           return false;
         }
       }
-      console.log("funciona B");
       // [ THE n SECTION ]
       // dibuja la siguiente sección, siempre y cuando exista!
       // [1] obtiene la siguiente posición del formulario
@@ -163,6 +162,8 @@ define(function(require){
             condition = true;
             for(var i = 0; i < rules.length; i++){
               var question = this.collection.findWhere({id : rules[i].question});
+              console.log("funciona B");
+              console.log(question ,rules[i], i, rules[i].question, rules);
               var value    = question.get('default_value');
               condition    = rules[i].val.indexOf(value) > -1;
               if(!condition) break;
