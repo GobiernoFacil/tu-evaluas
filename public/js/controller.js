@@ -131,6 +131,7 @@ define(function(require){
       // esa pregunta. Porque #YOLO
       if(!agentesFormSettings.is_test){
         var errors = this._validate_section();
+        console.log(this, errors, this._validate_section());
         if(errors.length){
           _.each(errors, function(view){
             view.el.style.border = "1px solid #FF6F69";
