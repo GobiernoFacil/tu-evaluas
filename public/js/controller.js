@@ -360,7 +360,7 @@ define(function(require){
             is_description = question.model.attributes.is_description;
 
 
-        console.log(value);
+        console.log( value, !value, is_description );
 
         if(!value && !is_description) errors.push(question);
       }, this);
