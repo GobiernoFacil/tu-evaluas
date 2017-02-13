@@ -355,12 +355,12 @@ define(function(require){
       var questions = this.sections[this.navigation_pointer].questions,
           errors    = [];
 
-      console.log(questions);
-      
       _.each(questions, function(question){
         var value = question.model.attributes.default_value,
             is_description = question.model.attributes.is_description;
 
+
+        consolelog(value);
 
         if(!value && !is_description) errors.push(question);
       }, this);
