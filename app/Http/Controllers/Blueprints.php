@@ -265,15 +265,30 @@ class Blueprints extends Controller
   //
   //
   public function createResultsOnly(Request $request){
+
+    //var_dump(mime_content_type($_FILES["the-results-file"]["tmp_name"]));
+    //die();
+
     $messages = [
       'title.required'            => 'El título del formulario es un campo necesario',
       'the-results-file.required' => 'Es necesario subir el archivo con los resultados',
       'the-results-file.mimetypes' => 'El archivo debe ser CSV o Excel',
     ];
     // validate the title && file type
+    $mimetype = [
+    "application/excel",
+    "application/vnd.ms-excel",
+    "application/vnd.msexcel",
+    "application/x-excel",
+    "application/x-msexcel",
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "text/csv",
+    "application/csv",
+    "text/comma-separated-values",
+    "text/plain"];
     $this->validate($request, [
       'title'            => 'required',
-      'the-results-file' => 'required|mimetypes:application/excel,application/vnd.ms-excel,application/x-excel,application/x-msexcel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv'
+      'the-results-file' => 'required|mimetypes:' . implode(",", $mimetype)
     ], $messages);
 
     //
