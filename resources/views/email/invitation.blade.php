@@ -22,7 +22,7 @@
         Toda la información que nos proporciones será confidencial y utilizada únicamente para conocer tu opinión de los apoyos o servicios que recibes.</p>
 
 		<p style="font-family: 'Open Sans Light', Helvetica, Arial, sans-serif ;color:#545454; font-size:16px; line-height:1.428; text-align:justify">
-        Si estás de acuerdo con participar en la encuesta, por favor da clic en el siguiente vínculo: <a href="{{url('encuesta/' . $applicant->form_key)}}" style="color:#12C">tuevaluas.com.mx</a></p>
+        Si estás de acuerdo con participar en la encuesta, por favor da clic en el siguiente vínculo: <a href="{{url('tuevaluas/encuesta/' . $applicant->form_key)}}" style="color:#12C">datos.gob.mx/tuevaluas</a></p>
 
 		<p style="font-family: 'Open Sans Light', Helvetica, Arial, sans-serif ;color:#545454; font-size:16px; line-height:1.428; text-align:justify">
         Esta dirección de correo electrónico no está habilitada para recibir mensajes.</p>

@@ -43,7 +43,7 @@
 					<label class="col-sm-3 control-label" for="password">Contraseña:</label> 
 					<div class="col-sm-9"> 
             <!-- [ THE PASSWORD ] -->
-						<input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required> <br>
+						<input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required autocomplete=off> <br>
 						<a href="{{url('password/reset')}}">Recuperar contraseña</a> 
 					</div> 
 				</div> 
