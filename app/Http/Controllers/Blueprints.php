@@ -273,7 +273,7 @@ class Blueprints extends Controller
     // validate the title && file type
     $this->validate($request, [
       'title'            => 'required',
-      'the-results-file' => 'required|mimetypes:application/excel,application/vnd.ms-excel,application/x-excel,application/x-msexcel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv'
+      'the-results-file' => 'required|mimetypes:application/excel,application/vnd.ms-excel,application/x-excel,application/x-msexcel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv,application/cs,csv'
     ], $messages);
 
     //
